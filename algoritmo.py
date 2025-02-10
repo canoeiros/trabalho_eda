@@ -10,13 +10,11 @@ fila_normal = Node()
 chamada = 0
 end_program = False 
 
-
 def add_mod():
     global chamada
     chamada += 1
     if chamada > 2:
         chamada = 0
-
 
 def add(nome, prioridade):
     new_node = Node(nome, prioridade)
@@ -32,7 +30,6 @@ def add(nome, prioridade):
         pt.prox = new_node
     else:
         print("Prioridade inválida. Use 1 para PRIORITÁRIO ou 2 para NORMAL.")
-
 
 def call():
     global chamada
@@ -55,7 +52,6 @@ def call():
         add_mod()
     else:
         print("Filas Vazias")
-    print(chamada)
 
 def show_list():
     print("Fila Prioridade:")
@@ -73,7 +69,6 @@ def show_list():
         print(f'{numero}. {pt.chave}') 
         pt = pt.prox
         numero += 1
-
 
 def interface():
     print("\nEscolha sua opção")
@@ -99,10 +94,8 @@ while not end_program:
             print("Prioridade inválida. Digite 1 ou 2.")
             continue
         add(nome, prioridade)
-        
     elif opcao == "2":
         call()
-        
     elif opcao == "3":
         show_list()
     elif opcao == "4":
