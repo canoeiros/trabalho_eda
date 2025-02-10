@@ -1,7 +1,11 @@
+import random
+import string
+
 class Node:
-    def __init__(self, chave=None, prioridade=None):
+    def __init__(self, chave=None, prioridade=None, senha=None):
         self.chave = chave
         self.prioridade = prioridade
+        self.senha = senha
         self.prox = None
 
 fila_prioridade = Node()   
@@ -16,8 +20,9 @@ def add_mod():
     if chamada > 2:
         chamada = 0
 
-def add(nome, prioridade):
-    new_node = Node(nome, prioridade)
+def add(nome, prioridade): 
+    senha = ''.join(random.choices(string.digits, k=3))
+    new_node = Node(nome, prioridade, senha)
     if prioridade == 1:
         pt = fila_prioridade
         while pt.prox is not None:
@@ -38,17 +43,17 @@ def call():
     if chamada == 2 and normal_disponivel:
         pt = fila_normal.prox
         fila_normal.prox = pt.prox
-        print(f"Chamando paciente : {pt.chave}")
+        print(f"Chamando paciente : {pt.chave} \nSenha: {pt.senha}")
         add_mod()
     elif prioridade_disponivel:
         pt = fila_prioridade.prox
         fila_prioridade.prox = pt.prox
-        print(f"Chamando paciente PRIORITARIO: {pt.chave} (Prioridade:)")
+        print(f"Chamando paciente PRIORITARIO: {pt.chave} \nSenha: {pt.senha}")
         add_mod()
     elif normal_disponivel:
         pt = fila_normal.prox
         fila_normal.prox = pt.prox
-        print(f"Chamando paciente : {pt.chave}")
+        print(f"Chamando paciente : {pt.chave} \nSenha: {pt.senha}")
         add_mod()
     else:
         print("Filas Vazias")
@@ -58,7 +63,7 @@ def show_list():
     numero = 1
     pt = fila_prioridade.prox
     while pt != None:
-        print(f'{numero}. {pt.chave}') 
+        print(f'{numero}. {pt.chave} - Senha:{pt.senha}') 
         pt = pt.prox
         numero += 1
     print('\n')
@@ -66,7 +71,7 @@ def show_list():
     numero = 1
     pt = fila_normal.prox
     while pt != None:
-        print(f'{numero}. {pt.chave}') 
+        print(f'{numero}. {pt.chave} - Senha:{pt.senha}') 
         pt = pt.prox
         numero += 1
 

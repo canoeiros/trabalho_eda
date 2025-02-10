@@ -1,23 +1,23 @@
 ### Fila de prioridade
 ```
 new(header)
-header.chave = none
-header.prox =  none
+header.chave = λ
+header.prox =  λ
 fila_prioridade↑= header
 ```
 
 ### Fila comum
 ```
 new(header)
-header.chave = none
-header.prox =  none
+header.chave = λ
+header.prox =  λ
 fila↑= header
 ```
 
 ### Variavel global
 ```
 chamada = 0
-pt = none
+pt = λ
 end = false
 ```
 
@@ -32,20 +32,21 @@ function add-mod(var):
 
 ### Procedimentos
 ```
-function add(nome, prioridade):
+function add(nome, prioridade, senha):
     new(aux)
     aux.chave = nome
     aux.prioridade = prioriade
-    aux.prox = none
+    senha = random_number()
+    aux.prox = λ
     if(prioridade == 1):
         pt↑ = fila_prioridade↑
-        while(pt↑.prox != none):
+        while(pt↑.prox != λ):
             pt = pt.prox
         pt.prox = aux
     else:
         if (prioridade == 2)
             pt↑ = fila↑
-            while(pt↑.prox != none):
+            while(pt↑.prox != λ):
                 pt = pt.prox
             pt.prox = aux
         else:
@@ -55,8 +56,8 @@ function add(nome, prioridade):
 
 ```
 function call():
-    prioridade_vazia = fila_prioridade↑.prox != none
-    fila_vazia = fila↑.prox != none
+    prioridade_vazia = fila_prioridade↑.prox != λ
+    fila_vazia = fila↑.prox != λ
     if (chamada == 2 and prioridade_vazia):
         pt↑ = fila_prioridade↑.prox
         aux1 = pt↑.chave
@@ -83,6 +84,23 @@ function call():
     add_mod(chamada)
     return 0
 ```
+```
+funcion show_list():
+    pt↑ = fila_prioridade↑.prox
+    numero = 1
+    print("Fila Prioridade")
+    while (pt↑ != λ):
+        print(f'{numero}. {pt.nome} - {pt.senha}')
+        pt = pt.prox
+
+    pt↑ = fila↑.prox
+    numero = 1
+    print("Fila Normal")
+    while (pt↑ != λ):
+        print(f'{numero}. {pt.nome} - {pt.senha}')
+        pt = pt.prox
+
+```
 
 ### Programa
 ```
@@ -91,7 +109,8 @@ function interface()
     print("----------------")
     print("1. Adicionar Paciente (Nome e Prioridade)")
     print("2. Chamar Paciente")
-    print("3. Encerrar programa")
+    print("3. Mostrar Lista")
+    print("4. Encerrar programa")
     print("\n")
     valor = input("Opção: ")
     return valor
@@ -105,6 +124,9 @@ while (end == false):
         add(aux1, aux2)
     elif (valor == 2):
         call()
+    elif (valor == 3):
+        show_list()
     else:
+        print("Encerrando Programa...")
         end = true
 ```
