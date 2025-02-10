@@ -23,11 +23,10 @@ end = false
 
 ### Função adicionar mod 3
 ```
-function add-mod(var):
-    variavel = variavel + 1 
-    if(variavel > 2):
-        variavel = 0
-    return variavel
+function add-mod():
+    chamada = chamada + 1 
+    if(chamada > 2):
+        chamada = 0
 ```
 
 ### Procedimentos
@@ -61,27 +60,28 @@ function call():
     if (chamada == 2 and prioridade_vazia):
         pt↑ = fila_prioridade↑.prox
         aux1 = pt↑.chave
-        aux2 = pt↑.prioridade
+        aux2 = pt.senha
         print(aux1, aux2)
         free(pt↑)
+        add_mod()
     else:
         if (fila_vazia):
             pt↑ = fila.prox
             aux1 = pt↑.chave
-            aux2 = pt↑.prioridade
+            aux2 = pt.senha
             print(aux1, aux2)
             free(pt↑)
+            add_mod()
         else:
             if (prioridade_vazia):
                 pt↑ = fila_prioridade↑.prox
                 aux1 = pt↑.chave
-                aux2 = pt↑.prioridade
+                aux2 = pt.senha
                 print(aux1, aux2)
                 free(pt↑)
+                add_mod()
             else:
                 print("Filas Vazias")
-                end()
-    add_mod(chamada)
     return 0
 ```
 ```
