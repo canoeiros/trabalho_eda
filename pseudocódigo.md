@@ -78,7 +78,7 @@ function call():
             add_mod()
         else:
             if (fila_disponivel):
-                pt↑ = fila_prioridade↑.prox
+                pt↑ = fila↑.prox
                 aux1 = pt↑.chave
                 aux2 = pt.senha
                 print(aux1, aux2)
