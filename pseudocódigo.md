@@ -91,6 +91,7 @@ function call():
 ```
 ```
 funcion show_list():
+    print("Fila Prioridade")
     pt↑ = fila_prioridade↑.prox
     numero = 1
     print("Fila Prioridade")
