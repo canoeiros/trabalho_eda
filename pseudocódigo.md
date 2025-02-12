@@ -97,6 +97,7 @@ funcion show_list():
     while (pt↑ != λ):
         print(f'{numero}. {pt.nome} - {pt.senha}')
         pt = pt.prox
+        numero = numero + 1
 
     pt↑ = fila↑.prox
     numero = 1
@@ -104,6 +105,7 @@ funcion show_list():
     while (pt↑ != λ):
         print(f'{numero}. {pt.nome} - {pt.senha}')
         pt = pt.prox
+        numero = numero + 1
 
 ```
 
@@ -131,6 +133,8 @@ while (end == false):
     elif (valor == 3):
         print("Encerrando Programa...")
         end = true
-    else:
+    elif:
         show_list()
+    else:
+        print("Opção inválida. Tente novamente.")
 ```
