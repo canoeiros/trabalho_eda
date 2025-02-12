@@ -2,6 +2,7 @@
 ```
 new(header)
 header.chave = λ
+header.senha = λ
 header.prox =  λ
 fila_prioridade↑= header
 ```
@@ -10,6 +11,7 @@ fila_prioridade↑= header
 ```
 new(header)
 header.chave = λ
+header.senha = λ
 header.prox =  λ
 fila↑= header
 ```
@@ -31,11 +33,11 @@ function add-mod():
 
 ### Procedimentos
 ```
-function add(nome, prioridade, senha):
+function add(nome, prioridade):
     new(aux)
     aux.chave = nome
     aux.prioridade = prioriade
-    senha = random_number()
+    aux.senha = random_number()
     aux.prox = λ
     if(prioridade == 1):
         pt↑ = fila_prioridade↑
@@ -55,29 +57,32 @@ function add(nome, prioridade, senha):
 
 ```
 function call():
-    prioridade_vazia = fila_prioridade↑.prox != λ
-    fila_vazia = fila↑.prox != λ
-    if (chamada == 2 and prioridade_vazia):
-        pt↑ = fila_prioridade↑.prox
+    prioridade_disponivel = fila_prioridade↑.prox != λ
+    fila_disponivel = fila↑.prox != λ
+    if (chamada == 2 and fila_disponivel):
+        pt↑ = fila↑.prox
         aux1 = pt↑.chave
         aux2 = pt.senha
         print(aux1, aux2)
+        fila↑.prox = pt.prox
         free(pt↑)
         add_mod()
     else:
-        if (fila_vazia):
-            pt↑ = fila.prox
+        if (prioridade_disponivel):
+            pt↑ = fila_prioridade.prox
             aux1 = pt↑.chave
             aux2 = pt.senha
             print(aux1, aux2)
+            fila_prioridade↑.prox = pt.prox
             free(pt↑)
             add_mod()
         else:
-            if (prioridade_vazia):
+            if (fila_disponivel):
                 pt↑ = fila_prioridade↑.prox
                 aux1 = pt↑.chave
                 aux2 = pt.senha
                 print(aux1, aux2)
+                fila↑.prox = pt.prox
                 free(pt↑)
                 add_mod()
             else:
