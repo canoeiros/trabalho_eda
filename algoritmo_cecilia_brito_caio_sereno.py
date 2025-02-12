@@ -1,3 +1,4 @@
+# Alunos: Caio Sereno e Cecilia Brito
 import random
 import string
 
@@ -80,8 +81,8 @@ def interface():
     print("----------------")
     print("1. Adicionar Paciente (Nome e Prioridade)")
     print("2. Chamar Paciente")
-    print("3. Mostrar Lista")
-    print("4. Encerrar programa")
+    print("3. Encerrar programa")
+    print("4. Mostrar Lista")
     print("")
     valor = input("Opção: ")
     return valor
@@ -102,9 +103,10 @@ while not end_program:
     elif opcao == "2":
         call()
     elif opcao == "3":
-        show_list()
-    elif opcao == "4":
         print("Encerrando programa...")
         end_program = True
+    elif opcao == "4":
+        show_list()
+       
     else:
         print("Opção inválida. Tente novamente.")

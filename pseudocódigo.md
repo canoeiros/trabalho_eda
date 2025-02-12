@@ -115,8 +115,8 @@ function interface()
     print("----------------")
     print("1. Adicionar Paciente (Nome e Prioridade)")
     print("2. Chamar Paciente")
-    print("3. Mostrar Lista")
-    print("4. Encerrar programa")
+    print("3. Encerrar programa")
+    print("4. Mostrar Lista")
     print("\n")
     valor = input("Opção: ")
     return valor
@@ -131,8 +131,8 @@ while (end == false):
     elif (valor == 2):
         call()
     elif (valor == 3):
-        show_list()
-    else:
         print("Encerrando Programa...")
         end = true
+    else:
+        show_list()
 ```
