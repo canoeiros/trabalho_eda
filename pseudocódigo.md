@@ -91,7 +91,6 @@ function call():
 ```
 ```
 funcion show_list():
-    print("Fila Prioridade")
     pt↑ = fila_prioridade↑.prox
     numero = 1
     print("Fila Prioridade")
@@ -111,7 +110,6 @@ funcion show_list():
 ### Programa
 ```
 function interface()
-    print("Escolha sua opção")
     print("----------------")
     print("1. Adicionar Paciente (Nome e Prioridade)")
     print("2. Chamar Paciente")
