@@ -110,7 +110,6 @@ funcion show_list():
 ### Programa
 ```
 function interface()
-    print("Escolha sua opção")
     print("----------------")
     print("1. Adicionar Paciente (Nome e Prioridade)")
     print("2. Chamar Paciente")
